@@ -5,15 +5,17 @@
  endif
  
  " remove the keywords. we'll re-add them below
-  if ! &ft
-     finish
-  endif
+"  if ! &ft
+"     finish
+"  endif
  
  
  let commentType=&ft."Comment"
 
- syntax cluster matchi add=&ft."Comment"
- syntax match matchComment "" contains=@matchi conceal cchar=Ξ
+ "syntax cluster matchi add=&ft."Comment"
+ "syntax match matchComment "\v^\s*#.*" contains=@matchi conceal cchar=Ξ
+ "syntax cluster matchi add=&ft."Comment"
+ syntax match matchComment "\v^\s*#.*"  conceal cchar=||
  
  hi! link matchComment Comment
  set conceallevel=2
